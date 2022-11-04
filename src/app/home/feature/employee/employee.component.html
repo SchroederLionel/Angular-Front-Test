@@ -1,0 +1,6 @@
+<button (click)="openUpsertEmployeeDialog()" mat-button>Add button</button>
+
+<app-employee-list
+  [employeeList]="employeeList"
+  (employeeSelected)="openUpsertEmployeeDialog($event)"
+></app-employee-list>
