@@ -10,8 +10,8 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class UpsertEmployeeComponent  {
   public employee! :Employee;
 
-  constructor(@Inject(MAT_DIALOG_DATA) employee:Employee,private dialogRef:MatDialogRef<UpsertEmployeeComponent>) {
-    this.employee = employee;
+  constructor(@Inject(MAT_DIALOG_DATA) _employee:Employee,private dialogRef:MatDialogRef<UpsertEmployeeComponent>) {
+    this.employee = _employee;
   }
 
   public onSubmit():void{

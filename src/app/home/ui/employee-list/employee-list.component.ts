@@ -13,16 +13,11 @@ export class EmployeeListComponent implements OnInit {
 
   
   public modifyEmployee(employee:Employee): void{
-    this.employeeSelected.emit(employee);
+    this.employeeSelected.emit(employee as Employee);
   }
 
   displayedColumns:string[] = ['id', 'firstName', 'lastName','email','action'];
   constructor() { }
   
-  ngOnInit(): void {
-   
-  }
-
- 
-
+  ngOnInit(): void {}
 }

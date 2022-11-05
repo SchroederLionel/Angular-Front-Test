@@ -12,11 +12,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { NavigationComponent } from './shared/ui/navigation/navigation.component';
+import { FooterComponent } from './shared/ui/footer/footer.component';
 import { EmployeeListComponent } from './home/ui/employee-list/employee-list.component';
 import { EmployeeComponent } from './home/feature/employee/employee.component';
-import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogComponent } from './shared/ui/confirmation-dialog/confirmation-dialog.component';
 import { UpsertEmployeeComponent } from './home/ui/upsert-employee/upsert-employee.component';
 
 

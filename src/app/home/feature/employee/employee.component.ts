@@ -18,28 +18,32 @@ export class EmployeeComponent implements OnInit {
   }
 
   openUpsertEmployeeDialog(employee?: Employee):void {
+    
+    var _employee = employee as Employee ?? new Employee();
+    console.log(typeof _employee);
     let isForCreation:boolean = employee == null ? true :false;
+    
     let dialogRef = this.dialog.open(UpsertEmployeeComponent, {
-      data:employee ?? new Employee(),
+      data:employee as Employee ?? new Employee(),
       height: '400px',
       width: '600px',
     });
 
     dialogRef.afterClosed().subscribe(employee => {
+  
       if(employee instanceof Employee ){
         if(isForCreation == true){
-          this.employeeService.createEmployee(employee).subscribe({
+          this.employeeService.save(employee).subscribe({
             next:(newEmployee:Employee) => this.employeeList = this.employeeList.concat(newEmployee),
             error:(error) => console.log(error)
           }); 
         }else {
-          this.employeeService.updateEmployee(employee).subscribe({
+          this.employeeService.update(employee.id!,employee).subscribe({
             next:(update_employee:Employee) => 
               this.employeeList = this.employeeList.map(employee =>employee.id !== update_employee.id ? employee : update_employee),
             error:(error) => console.log(error)
           })
         }
-         
       }
       
     });
@@ -50,7 +54,7 @@ export class EmployeeComponent implements OnInit {
   
 
   private getEmployees() {
-    this.employeeService.getEmployeesList().subscribe({
+    this.employeeService.findAll().subscribe({
       next:(employees) => this.employeeList = employees,
       error:(error) => console.log(error)
     })
