@@ -1,43 +1,48 @@
-<mat-table #table [dataSource]="employees">
-  <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" 
-          
-        https://nartc.me/blog/typed-mat-cell-def/
-        
-        -->
-
+<mat-table #table [dataSource]="employees$">
   <!-- ID Column -->
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+    <mat-cell *matCellDef="let element; dataSource: employees$">
+      {{ element.employee_id }}
+    </mat-cell>
   </ng-container>
 
   <!-- First Name Column -->
   <ng-container matColumnDef="firstName">
     <mat-header-cell *matHeaderCellDef> First name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
+    <mat-cell *matCellDef="let element; dataSource: employees$">
+      {{ element.firstName }}
+    </mat-cell>
   </ng-container>
 
   <!-- Last Name Column -->
   <ng-container matColumnDef="lastName">
     <mat-header-cell *matHeaderCellDef> Last name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.lastName }} </mat-cell>
+    <mat-cell *matCellDef="let element; dataSource: employees$">
+      {{ element.lastName }}
+    </mat-cell>
   </ng-container>
 
   <!-- Email Column -->
   <ng-container matColumnDef="email">
     <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.emailId }} </mat-cell>
+
+    <mat-cell *matCellDef="let element; dataSource: employees$">
+      {{ element.email }}
+    </mat-cell>
   </ng-container>
 
   <!-- Actions Column -->
   <ng-container matColumnDef="action">
     <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
-    <mat-cell *matCellDef="let element">
+    <mat-cell *matCellDef="let element; dataSource: employees$">
       <mat-icon>delete</mat-icon>
       <button mat-icon-button (click)="modifyEmployee(element)">
         <mat-icon>open_in_new</mat-icon>
       </button>
+      <a routerLink="{{ element.employee_id }}">
+        <mat-icon>home</mat-icon>asdasd</a
+      >
     </mat-cell>
   </ng-container>
 

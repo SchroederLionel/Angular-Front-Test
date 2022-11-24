@@ -18,6 +18,9 @@ import { EmployeeListComponent } from './home/ui/employee-list/employee-list.com
 import { EmployeeComponent } from './home/feature/employee/employee.component';
 import { ConfirmationDialogComponent } from './shared/ui/confirmation-dialog/confirmation-dialog.component';
 import { UpsertEmployeeComponent } from './home/ui/upsert-employee/upsert-employee.component';
+import { TypeSafeMatCellDefDirective } from './shared/directives/type-safe-mat-cell-def.directive';
+import { DetailEmployeeComponent } from './home/ui/detail-employee/detail-employee.component';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { UpsertEmployeeComponent } from './home/ui/upsert-employee/upsert-employ
     EmployeeListComponent,
     EmployeeComponent,
     ConfirmationDialogComponent,
-    UpsertEmployeeComponent
+    UpsertEmployeeComponent,
+    TypeSafeMatCellDefDirective,
+    DetailEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { UpsertEmployeeComponent } from './home/ui/upsert-employee/upsert-employ
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

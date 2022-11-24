@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Employee } from 'src/app/models/employee';
 
 
@@ -7,17 +8,19 @@ import { Employee } from 'src/app/models/employee';
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent implements OnInit {
-  @Input("employeeList") employees: Employee[]=[];
+export class EmployeeListComponent {
+  @Input("employees") employees$ : Observable<Employee[]> = of([]);
+
   @Output() public employeeSelected = new EventEmitter<Employee>;
 
   
   public modifyEmployee(employee:Employee): void{
-    this.employeeSelected.emit(employee as Employee);
+    let employeeSelected =  new Employee();
+    Object.assign(employeeSelected,employee);
+    this.employeeSelected.emit(employeeSelected);
   }
 
   displayedColumns:string[] = ['id', 'firstName', 'lastName','email','action'];
   constructor() { }
   
-  ngOnInit(): void {}
 }

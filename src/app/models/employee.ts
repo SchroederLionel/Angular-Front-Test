@@ -1,6 +1,6 @@
 export class Employee {
-      id?:number;
+      employee_id?:number;
       firstName?:string;
       lastName?:string;
-      emailId?:string;
+      email?:string;
 }
